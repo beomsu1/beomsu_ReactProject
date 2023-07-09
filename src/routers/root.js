@@ -8,6 +8,7 @@ import LoadingPage from "../pages/Loading";
 const loading = <LoadingPage></LoadingPage>
 const Board_Index = lazy(() => import("../pages/board/indexPage"))
 const Board_List = lazy(()=> import("../pages/board/ListPage"))
+const Board_Read = lazy(() => import("../pages/board/ReadPage"))
 
 const router = createBrowserRouter([
     // {} -> 하나의 객체
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path : "list",
                 element: <Suspense fallback={loading}><Board_List/></Suspense>
+            },
+            {
+                path : "read/:bno",
+                element : <Suspense fallback={loading}><Board_Read/></Suspense>
             }
         ]
     }

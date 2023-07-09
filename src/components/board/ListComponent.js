@@ -1,6 +1,7 @@
 import { createSearchParams } from "react-router-dom";
 import { getList } from "../../api/BoardAPI";
 import { useEffect, useState } from "react";
+import ListPageComponent from "./common/ListPageComponent";
 
 // 껍데기 만들기
 const initState = {
@@ -15,7 +16,7 @@ const initState = {
     requestDTO : null
 }
 
-const ListComponent = ({queryObj , movePage}) => {
+const ListComponent = ({queryObj , movePage , moveRead}) => {
 
     // 기본 상태 초기값 만들기
     const [listData , setListData] = useState(initState)
@@ -37,35 +38,21 @@ const ListComponent = ({queryObj , movePage}) => {
         // queryObj를 의존
     },[queryObj])
 
-    const handleClickPage = (pageNum) => {
-        movePage(pageNum)
-    }
+
 
     return ( 
         <div>
             <div>ListComponent</div>
             <div>
                 <ul>
-                    {listData.dtoList.map(({bno,title,writer,replyCount}) => <li key={bno}>{bno} - {title} - {writer} - {replyCount}</li>)}
+                    {listData.dtoList.map(({bno,title,writer,replyCount}) => <li key={bno}
+                    onClick={()=> moveRead(bno)}
+                    >{bno} - {title} - {writer} - {replyCount}</li>)}
                 </ul>
             </div>
 
-            {/* 페이지 버튼 만들기 */}
-            <div >
-                <ul className="flex">
-                    {listData.prev ? <li className="m-2 underline"
-                    onClick={() => handleClickPage(listData.start-1)}
-                    >PREV</li> : <></>}
+            <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
 
-                    {listData.pageNums.map(num => <li key={num} className="m-2 underline "
-                    onClick={() => handleClickPage(num)}
-                    >{num}</li>)}
-
-                    {listData.next ? <li className="m-2 underline"
-                    onClick={() => handleClickPage(listData.end+1)}
-                    >NEXT</li> : <></>}
-                </ul>
-            </div>
         </div>
      );
 }

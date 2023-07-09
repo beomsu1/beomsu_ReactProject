@@ -8,7 +8,7 @@ const IndexPage = () => {
             <div className="m-4 p-2 underline ">List</div>
             <div className="m-4 p-2 underline ">Register</div>
         </div>
-        <div className="h-[50vh] bg-purple-300 w-full">
+        <div className="h-[70vh] bg-purple-300 w-full">
             <Outlet></Outlet>
         </div>
         </BasicLayout>
