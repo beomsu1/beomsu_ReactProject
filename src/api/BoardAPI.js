@@ -1,6 +1,7 @@
 import axios from "axios"
 import { createSearchParams } from "react-router-dom"
 
+// 목록 리스트
 export const getList = async(queryObj) => {
 
     // queryObj를 URL 쿼리 문자열로 변환한 후 문자열로 저장
@@ -10,4 +11,13 @@ export const getList = async(queryObj) => {
     const res = await axios.get(`http://localhost:8080/api/board/list?${queryString}`)
 
     return res.data
+}
+
+// 조회
+export const getOne = async(bno) => {
+    
+        const res = await axios.get(`http://localhost:8080/api/board/${bno}`)
+    
+        return res.data
+
 }
