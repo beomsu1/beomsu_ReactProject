@@ -2,7 +2,7 @@ import SampleNav from "./nav/SampleNav";
 
 const BasicLayout = ({children}) => {
     return ( 
-        <div className="mx-auto min-w-[1280px] bg-pink-300">
+        <div className="mx-auto min-w-[1280px] bg-[#99ccff]">
             <div>
                 <SampleNav></SampleNav>
             </div>
