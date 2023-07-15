@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
 import useQueryObj from "../../hooks/useQueryObj";
 import ReadComponent from "../../components/read/ReadComponent";
 import ReplyWrapper from "../../components/reply/ReplyWrapper";
+import { useParams } from "react-router-dom";
 
 const ReadPage = () => {
 
