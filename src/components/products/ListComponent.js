@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getList } from "../../api/ProductsAPI"; // <- 오류아님
+import { getList } from "../../api/ProductsAPI";
 import ListPageComponent from "../board/common/ListPageComponent";
 
 // PageResponseDTO
@@ -33,30 +33,34 @@ const ListComponent = ({ queryObj, movePage, moveRead }) => {
 
 
   return (
-    <div >
-      <div className="text-2xl m-4">상품 목록</div>
-
-      <div>
-        <ul className="flex flex-wrap container justify-center">
-          {listData.dtoList.map((dto) => <li key={dto.pno}
-            onClick={() => moveRead(dto.pno)}
-            className="w-2/5 h-[300px] scursor-pointer m-2 py-2 px-4 border-2 border-purple-300 rounded-lg"
-          >
-            <div>
-              <div className="font-extrabold underline">{dto.pno} </div>
-
-              <div className="flex justify-center items-center">
-                <img src={`http://localhost/s_${dto.fname}`}></img>
+    <div>
+      <div className="bg-gray-100 py-4">
+        <h1 className="text-3xl font-bold mb-4 text-blue-500 text-center">Product List</h1>
+        <ul className="flex flex-wrap justify-center">
+          {listData.dtoList.map((dto) => (
+            <li
+              key={dto.pno}
+              onClick={() => moveRead(dto.pno)}
+              className="w-1/6 mx-2 my-4 cursor-pointer bg-white rounded-lg shadow-md p-4"
+            >
+              <div className="text-center">
+                <div className="font-bold text-lg mb-2">{dto.pno}</div>
+                <div className="flex justify-center mb-4">
+                  <img src={`http://localhost/s_${dto.fname}`} alt="Product" className="w-2/3" />
+                </div>
+                <div className="font-bold text-blue-500">
+                  상품: {dto.pname}
+                </div>
+                <div className="text-gray-500">
+                  가격: {dto.price}원
+                </div>
               </div>
-              <div className="flex justify-center font-extrabold">
-                {dto.pname} - {dto.price} <br/>
-                리뷰 {dto.reviewCnt} - {dto.reviewAvg}
-              </div>
-
-            </div>
-          </li>)}
+            </li>
+          ))}
         </ul>
       </div>
+
+
 
       <ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
 

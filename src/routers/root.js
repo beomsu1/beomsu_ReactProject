@@ -14,6 +14,9 @@ const Products_Index = lazy(() => import("../pages/products/indexPage"))
 const Products_List = lazy(() => import("../pages/products/ListPage"))
 const Products_Register = lazy(() => import("../pages/products/RegisterPage"))
 const Products_Read = lazy(() => import("../pages/products/ReadPage"))
+const Products_Modify = lazy(() => import("../pages/products/ModifyPage"))
+
+const Member_Login = lazy(() => import("../pages/member/LoginPage"))
 
 const router = createBrowserRouter([
     // {} -> 하나의 객체
@@ -60,9 +63,17 @@ const router = createBrowserRouter([
             {
                 path : "read/:pno",
                 element : <Suspense fallback={loading}><Products_Read/></Suspense>
+            },
+            {
+                path : "modify/:pno",
+                element: <Suspense fallback={loading}><Products_Modify/></Suspense>
             }
             
         ]
+    },
+    {
+        path : "member/login",
+                element: <Suspense fallback={loading}><Member_Login/></Suspense>
     }
 ])
 

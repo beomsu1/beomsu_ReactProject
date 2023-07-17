@@ -51,14 +51,24 @@ const useQueryObj = () => {
         console.log("moveRead: " + bno)
 
         // 쿼리스트링까지 넘어가지는 확인해보기
-        const queryString = createSearchParams(queryObj)
+        const queryString = createSearchParams(queryObj).toString()
 
         // 쿼리스트링 까지 포함한 주소
         navigate(`../read/${bno}?${queryString}`)
     }
 
+    const moveModify= (bno) => {
 
-    return {queryObj , setSearch , moveRead , moveList}
+      // 쿼리스트링 만들기
+      const queryString = createSearchParams(queryObj).toString()
+
+      // 이동 주소 만들기
+      navigate(`../modify/${bno}?${queryString}`)
+
+    }
+
+
+    return {queryObj , setSearch , moveRead , moveList , moveModify}
 
 }
 

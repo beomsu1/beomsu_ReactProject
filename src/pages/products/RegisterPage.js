@@ -12,7 +12,6 @@ const RegisterPage = () => {
 
     return ( 
         <div>
-            Products Register Page
             <RegisterComponent moveList={moveList}></RegisterComponent>
         </div>
      );

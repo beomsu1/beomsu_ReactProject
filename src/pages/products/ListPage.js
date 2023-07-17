@@ -17,7 +17,6 @@ const Listpage = () => {
 
     return ( 
         <div>
-            Product List Page
             <ListComponent queryObj={queryObj} movePage={movePage} moveRead={moveRead}></ListComponent>
         </div>
      );

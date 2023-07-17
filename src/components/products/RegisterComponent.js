@@ -3,85 +3,108 @@ import { postProduct } from "../../api/ProductsAPI"
 
 // 껍데기 생성
 const initState = {
-  pname : '',
-  pdesc : '',
-  price : ''
+    pname: '',
+    pdesc: '',
+    price: ''
 }
 
 
-const RegisterComponent = ({moveList}) => {
+const RegisterComponent = ({ moveList }) => {
 
-  // 참조값 물기
-  const fileRef = useRef()
-    
-  // 오류 안뜨게 끔 설정
-  const [product , setProduct] = useState({...initState})
+    // 참조값 물기
+    const fileRef = useRef()
 
-  // change 함수 생성
-  const handleChange = (e) => {
-      product[e.target.name] = e.target.value
-      setProduct({...product})
-  }
+    // 오류 안뜨게 끔 설정
+    const [product, setProduct] = useState({ ...initState })
 
-  // save 함수 생성
-  const handleClickSave = (e) => {
-      
-      const formData = new FormData();
+    // change 함수 생성
+    const handleChange = (e) => {
+        product[e.target.name] = e.target.value
+        setProduct({ ...product })
+    }
 
-      // 하나씩 담아줘여함
-      formData.append("pname", product.pname)
-      formData.append("pdesc", product.pdesc)
-      formData.append("price", product.price)
+    // save 함수 생성
+    const handleClickSave = (e) => {
 
-      console.dir(fileRef.current)
+        const formData = new FormData();
 
-      const arr = fileRef.current.files
-      
-      for(let file of arr) {
-          formData.append("files", file)
-      }
+        // 하나씩 담아줘여함
+        formData.append("pname", product.pname)
+        formData.append("pdesc", product.pdesc)
+        formData.append("price", product.price)
 
-      postProduct(formData).then(data => {
-        const rno = data.result 
-        alert(`${rno}번 상품이 등록되었습니다.`)
-        moveList()
-      })
+        console.dir(fileRef.current)
 
-  }
+        const arr = fileRef.current.files
 
-  // clear 함수 생성
-  const handleClickClear = (e) => {
-      fileRef.current.value=''
-  }
+        for (let file of arr) {
+            formData.append("files", file)
+        }
+
+        postProduct(formData).then(data => {
+            const rno = data.result
+            alert(`${rno}번 상품이 등록되었습니다.`)
+            moveList()
+        })
+
+    }
+
+    // clear 함수 생성
+    const handleClickClear = (e) => {
+        fileRef.current.value = ''
+    }
 
 
-    return ( 
-        <div>
-            <h1>Product Input</h1>
-            <div className="border-2 m-2 p-2">
-                <input type="text" name="pname" value={product.pname} onChange={handleChange}
-                placeholder="Name"
-                ></input>
+    return (
+        <div className="bg-white p-4 ">
+            <h1 className="text-2xl font-extrabold mb-2 p-2 text-blue-500">Product Input</h1>
+            <div className="border-2 rounded-lg m-2 p-2">
+                <input
+                    type="text"
+                    name="pname"
+                    value={product.pname}
+                    onChange={handleChange}
+                    placeholder="Name"
+                    className="bg-gray-100 border-2 rounded-lg p-2 w-full"
+                />
             </div>
-            <div className="border-2 m-2 p-2">
-                <input type="text" name="pdesc" value={product.pdesc} onChange={handleChange}
-                placeholder="Description"
-                ></input>
+            <div className="border-2 rounded-lg m-2 p-2">
+                <input
+                    type="text"
+                    name="pdesc"
+                    value={product.pdesc}
+                    onChange={handleChange}
+                    placeholder="Description"
+                    className="bg-gray-100 border-2 rounded-lg p-2 w-full"
+                />
             </div>
-            <div className="border-2 m-2 p-2">
-                <input type="number" name="price" value={product.price} onChange={handleChange}
-                placeholder="Price"
-                ></input>
+            <div className="border-2 rounded-lg m-2 p-2">
+                <input
+                    type="number"
+                    name="price"
+                    value={product.price}
+                    onChange={handleChange}
+                    placeholder="Price"
+                    className="bg-gray-100 border-2 rounded-lg p-2 w-full"
+                />
             </div>
-            <div className="border-2 m-2 p-2">
-                <input type="file" multiple name="images" onChange={handleChange} ref={fileRef}></input>
+            <div className="border-2 rounded-lg m-2 p-2">
+                <input
+                    type="file"
+                    multiple
+                    name="images"
+                    onChange={handleChange}
+                    ref={fileRef}
+                    className="bg-gray-100 border-2 rounded-lg p-2 w-full"
+                />
             </div>
             <div>
-                <button onClick={handleClickSave} className="border-2 m-2 p-2">SAVE</button>
-                <button onClick={handleClickClear} className="border-2 m-2 p-2">CLEAR</button>
+                <button onClick={handleClickSave} className="bg-blue-500 text-white border-2 rounded-lg m-2 p-2">SAVE</button>
+                <button onClick={handleClickClear} className="bg-blue-500 text-white border-2 rounded-lg m-2 p-2">CLEAR</button>
             </div>
         </div>
-     );
+
+    );
 }
- 
+
 export default RegisterComponent;

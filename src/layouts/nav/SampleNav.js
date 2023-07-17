@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LoginNav from "./LoginNav";
 
 const SampleNav = () => {
     return (
@@ -14,6 +15,9 @@ const SampleNav = () => {
             </div>
             <div className="m-4 text-4xl underline ">
                 <Link to="/board/list">Board</Link>
+            </div>
+            <div>
+                <LoginNav></LoginNav>
             </div>
         </div>
     );

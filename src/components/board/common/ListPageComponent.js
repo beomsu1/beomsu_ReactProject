@@ -7,7 +7,7 @@ const ListPageComponent = ({movePage,prev,next,start,pageNums,end,page}) => {
     return ( 
 
         <div >
-            <ul className="flex">
+            <ul className="flex justify-center">
                     {prev ? <li className="m-2 underline"
                     onClick={() => handleClickPage(start-1)}
                     >PREV</li> : <></>}
