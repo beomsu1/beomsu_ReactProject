@@ -3,6 +3,7 @@ import MainPage from "../pages/MainPage";
 import AboutPage from "../pages/AboutPage";
 import { Suspense, lazy } from "react";
 import LoadingPage from "../pages/Loading";
+import KakaoRedirectPage from "../pages/member/KakaoRedirectPage";
 
 // 비동기 로딩
 const loading = <LoadingPage></LoadingPage>
@@ -73,7 +74,11 @@ const router = createBrowserRouter([
     },
     {
         path : "member/login",
-                element: <Suspense fallback={loading}><Member_Login/></Suspense>
+        element: <Suspense fallback={loading}><Member_Login/></Suspense>
+    },
+    {
+        path : "member/kakao",
+        element : <KakaoRedirectPage></KakaoRedirectPage>
     }
 ])
 

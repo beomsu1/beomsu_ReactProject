@@ -35,8 +35,8 @@ const loginSlice = createSlice({
   name: 'loginSlice',
   initialState: loadCookies(), // 이 함수 결과를 초기화 값으로 잡아라
   reducers: {
-    requestLogin: (state, param) => {
-      const payload = param.payload
+    requestLogin: (state, action) => {
+      const payload = action.payload
       console.log("requestLogin", payload)
 
       const loginObj = {
@@ -45,10 +45,10 @@ const loginSlice = createSlice({
       }
 
       // 객체를 문자열로 변환 - JSON.stringify
-      setCookie("login", JSON.stringify(loginObj), 1)
+      setCookie("login", JSON.stringify(payload), 1)
 
 
-      return loginObj
+      return payload
     }
   },
   extraReducers: (builder) => {
@@ -77,5 +77,7 @@ const loginSlice = createSlice({
     })
   }
 })
+
+export const {requestLogin} = loginSlice.actions
 
 export default loginSlice.reducer
