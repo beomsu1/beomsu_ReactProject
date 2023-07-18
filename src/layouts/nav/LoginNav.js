@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Cartnav from "./CartNav";
 
 
 const LoginNav = () => {
@@ -15,6 +16,7 @@ const LoginNav = () => {
         <div>
             <div>
                 {email} - {nickname}
+                <Cartnav></Cartnav>
             </div>
         </div>
         )
