@@ -29,9 +29,9 @@ const ReadComponent = ({ pno , moveList , moveModify }) => {
     return (
 <div className="bg-white p-4 border-2">
   <h1 className="text-2xl font-bold mb-4 text-blue-500">Product Read</h1>
-  <div className="mb-4 border-b-2 border-blue-500 pb-2 ">{product.pname}</div>
-  <div className="mb-4 border-b-2 border-blue-500 pb-2">{product.pdesc}</div>
-  <div className="mb-4 border-b-2 border-blue-500 pb-2">{product.price}원</div>
+  <div className="mb-4 border-b-2 border-blue-500 rounded-lg shadow-sm pb-2 ">{product.pname}</div>
+  <div className="mb-4 border-b-2 border-blue-500 rounded-lg shadow-sm pb-2">{product.pdesc}</div>
+  <div className="mb-4 border-b-2 border-blue-500 rounded-lg shadow-sm pb-2">{product.price}원</div>
   <div>
     <ul>
       {product.images.map((fname, idx) => (

@@ -29,7 +29,7 @@ const ListSearchComponent = ({queryObj ,moveSearch}) => {
 
 
     return ( 
-        <div className="mb-7 w-2/5 p-4 bg-blue-100 border-2 border-blue-300 rounded-md">
+        <div className="mb-7 w-8/12 p-4 bg-blue-100 border-2 border-blue-300 rounded-3xl ">
         <select
           className="border p-2 m-1 rounded"
           value={searchObj.type}
@@ -47,15 +47,16 @@ const ListSearchComponent = ({queryObj ,moveSearch}) => {
         </select>
         <input
           type="text"
-          className="border p-2 m-1 rounded"
+          className="border p-2 m-1 rounded w-3/5 ml-3"
           value={searchObj.keyword}
+          placeholder="검색어를 입력해주세요."
           onChange={(e) => {
             searchObj.keyword = e.target.value;
             setSearchObj({ ...searchObj });
           }}
         />
         <select
-          className="border p-2 m-1 rounded"
+          className="border p-2 m-1 rounded ml-4"
           value={searchObj.size}
           onChange={(e) => {
             searchObj.size = e.target.value;
@@ -68,7 +69,7 @@ const ListSearchComponent = ({queryObj ,moveSearch}) => {
           <option value={20}>20개</option>
         </select>
         <button
-          className="border-2 border-blue-500 p-2 rounded text-blue-500 ml-7"
+          className="border-2 border-blue-500 p-2 rounded text-blue-500 ml-4"
           onClick={() => {
             moveSearch(searchObj.type, searchObj.keyword, searchObj.size);
           }}

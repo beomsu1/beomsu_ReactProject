@@ -15,7 +15,7 @@ const initState = {
     requestDTO: null
 }
 
-const ReplyList = ({ bno, page, last, movePage , refresh , changeCurrent}) => {
+const ReplyList = ({ bno, page, last, movePage, refresh, changeCurrent }) => {
 
     // 오류가 안나게 끔 기본 값 설정
     const [listData, setListData] = useState(initState)
@@ -31,22 +31,27 @@ const ReplyList = ({ bno, page, last, movePage , refresh , changeCurrent}) => {
             // data로 상태 업데이트하기 data->PageReponseDTO 타입
             setListData(data)
         })
-    }, [bno , page , last , refresh])
+    }, [bno, page, last, refresh])
 
     return (
-        <div>
-            <div>
-                ReplyList
-            </div>
-            <div>
-                <ul>
-                    {listData.dtoList.map(reply => <li key={reply.rno}
-                    onClick={()=>changeCurrent(reply.rno)}
-                    >{reply.rno} - {reply.replyText}</li>)}
+        <div className="bg-blue-100 p-4 rounded-lg">
+            <h2 className="text-blue-500 text-2xl font-bold mb-4">ReplyList</h2>
+            <div className="bg-white p-4 rounded-lg shadow mb-4 ">
+                <ul className="list-disc list-inside">
+                    {listData.dtoList.map(reply => (
+                        <li
+                            key={reply.rno}
+                            className="text-blue-500 cursor-pointer hover:underline"
+                            onClick={() => changeCurrent(reply.rno)}
+                        >
+                            {reply.rno} - {reply.replyText} - {reply.replyer}
+                        </li>
+                    ))}
                 </ul>
-                <ListPageComponent {...listData} movePage={movePage}></ListPageComponent>
+                <ListPageComponent {...listData} movePage={movePage} />
             </div>
         </div>
+
     );
 }
 
