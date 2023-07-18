@@ -16,13 +16,12 @@ const ReadPage = () => {
     return ( 
         <>
         <div>
-            Board Read Page
-
-            <ReplyWrapper bno={bno}></ReplyWrapper>
             <ReadComponent bno={bno}></ReadComponent>
+            <ReplyWrapper bno={bno}></ReplyWrapper>
+            
         </div>
         <div>
-            <button onClick={(e) => moveList()}>List</button>
+            <button className="border-2 m-2 p-2 text-blue-500" onClick={(e) => moveList()}>List</button>
         </div>
         </>
      );

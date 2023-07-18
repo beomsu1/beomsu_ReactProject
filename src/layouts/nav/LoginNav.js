@@ -1,29 +1,34 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Cartnav from "./CartNav";
+
 
 const LoginNav = () => {
 
-    const {email, signed} = useSelector(state => state.login)
+    // 구조분해할당
+    const {email,nickname} = useSelector(state => state.login)
 
-    console.log("LoginNav... " , email,signed)
+    console.log("LoginNav........." , email)
 
-    if(signed){
-        return(
+    // 이메일이 ''이 아닐떄만 CartNav가 보여지게
+    if(email !== ''){
+        return (
+        <div>
             <div>
-                <div>
-                    {email}
-                </div>
+                {email} - {nickname}
+                <Cartnav></Cartnav>
             </div>
+        </div>
         )
     }
 
-    return ( 
+    return (
         <div>
             <div>
-                <Link to="/member/login">Login</Link>
-                </div>
+                <Link to="/member/login">LOGIN</Link>
+            </div>
         </div>
-     );
+    );
 }
  
 export default LoginNav;

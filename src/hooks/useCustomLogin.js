@@ -14,20 +14,20 @@ const useCustomLogin = (fn) => {
     useEffect(() => {
 
         if (fn) {
-            if (!loginInfo.signed) {
+            if (!loginInfo.email) {
                 fn(navigate)
                 return
             }
         }
 
         // signed가 false면 loginpage로
-        if (!loginInfo.signed) {
+        if (!loginInfo.email) {
             navigate(`/member/login`)
             return
         }
 
 
-    }, [loginInfo.signed])
+    }, [loginInfo.email])
 
     return { loginInfo }
 }

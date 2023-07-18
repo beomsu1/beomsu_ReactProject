@@ -38,7 +38,9 @@ const ListPage = () => {
 
     return ( 
         <div>
-            <ListSearchComponent queryObj={queryObj} moveSearch={moveSearch} ></ListSearchComponent>
+            <div className="flex justify-center">
+                <ListSearchComponent queryObj={queryObj} moveSearch={moveSearch} ></ListSearchComponent>
+                </div>
             <ListComponent queryObj={queryObj} movePage={movePage} moveRead={moveRead}></ListComponent>
         </div>
      );
