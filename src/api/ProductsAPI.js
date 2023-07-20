@@ -1,5 +1,5 @@
-import axios from "axios"
 import { createSearchParams } from "react-router-dom"
+import jwtAxios from "../util/jwtUtil"
 
 export const postProduct = async(FormData) => {
 
@@ -9,7 +9,7 @@ export const postProduct = async(FormData) => {
         }
     }
 
-    const res = await axios.post(`http://localhost:8080/api/products/`, FormData , header)
+    const res = await jwtAxios.post(`http://localhost:8080/api/products/`, FormData , header)
 
     return res.data
 
@@ -21,14 +21,14 @@ export const getList = async(queryObj) => {
     const queryString = createSearchParams(queryObj)
     
     // QueryString을 axios.get 메소드 요청 URL 파라미터로 사용
-    const res = await axios.get(`http://localhost:8080/api/products/list?${queryString}`)
+    const res = await jwtAxios.get(`http://localhost:8080/api/products/list?${queryString}`)
 
     return res.data
 }
 
 export const getProduct = async(pno) => {
 
-    const res = await axios.get(`http://localhost:8080/api/products/${pno}`)
+    const res = await jwtAxios.get(`http://localhost:8080/api/products/${pno}`)
 
     return res.data
 
@@ -36,7 +36,7 @@ export const getProduct = async(pno) => {
 
 export const deleteProduct = async(pno) => {
 
-    const res = await axios.delete(`http://localhost:8080/api/products/${pno}`)
+    const res = await jwtAxios.delete(`http://localhost:8080/api/products/${pno}`)
 
     return res.data
 }
@@ -49,7 +49,7 @@ export const putProduct = async(FormData) => {
         }
     }
 
-    const res = await axios.post(`http://localhost:8080/api/products/modify`, FormData , header)
+    const res = await jwtAxios.post(`http://localhost:8080/api/products/modify`, FormData , header)
 
     return res.data
 }

@@ -8,9 +8,9 @@ const KakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_KEY}&
 
 const KakaoLoginComponent = () => {
     return ( 
-        <div className="text-3xl text-yellow-200 font-extrabold">
-            <Link to={KakaoURL}>Kakao Login</Link>
-        </div>
+        <button className="text-2xl w-1/6 bg-[#fef01b] text-black">
+            <Link to={KakaoURL}>카카오 로그인</Link>
+        </button>
      );
 }
  
