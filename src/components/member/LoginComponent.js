@@ -40,7 +40,7 @@ const LoginComponent = () => {
                 <input type="password" name="pw" value={loginInfo.pw} onChange={()=>{}}></input>
             </div>
             <div>
-                <button onClick={() => dispatch(postLoginThunk(loginInfo))}>LOGIN</button>
+                <button onClick={() => dispatch(postLoginThunk(loginInfo))}>로그인</button>
             </div>
         </div>
     );

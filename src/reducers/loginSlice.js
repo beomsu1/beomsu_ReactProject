@@ -59,14 +59,21 @@ const loginSlice = createSlice({
 
       if(errorMsg){
         state.errorMsg = errorMsg
+        return
       }
 
-      state.loading = false
-      state.email = email
-      state.nickname=nickname
-      state.admin = admin
+      // state.loading = false
+      // state.email = email
+      // state.nickname=nickname
+      // state.admin = admin
+      // 이것들을 줄인코드 ->
+
+      // action.payload - 진짜 데이터 (토큰값도 포함되어있음)
+      console.log("STATE: " , state)
 
       setCookie("login", JSON.stringify(action.payload), 1)
+
+      return {...action.payload , loading: false}
     })
     .addCase(postLoginThunk.pending, (state , action) => {
       console.log("pending")
