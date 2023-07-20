@@ -20,7 +20,7 @@ export const setCookie = (cookieName , value , days) => {
 export const getCookie = (cookieName) => {
 
     return cookies.get(cookieName)
-}
+}   
 
 // 쿠키 삭제하기
 export const removeCookie = (cookieName , path="/") => {
