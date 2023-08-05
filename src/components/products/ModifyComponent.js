@@ -92,7 +92,7 @@ const ModifyComponent = ({ pno, moveList, moveRead }) => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-blue-500 mb-4">Product Read</h1>
+      <h1 className="text-3xl font-bold text-blue-500 mb-4">Product Modify</h1>
       <div className=" m-2 p-2 border-b-2 border-blue-300 rounded-lg shadow-sm">
         {product.pno}번
       </div>

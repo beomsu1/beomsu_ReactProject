@@ -25,6 +25,15 @@ const ListComponent = ({ queryObj, movePage, moveRead }) => {
     getList(queryObj).then(data => {
       console.log(data)
       setListData(data)
+      
+      
+    }).catch(err => {
+
+      console.log("--------------------")
+      console.log(err)
+      console.log("----------------------")
+
+      // 로그인을 안 했을 때
     })
 
     // queryObj 안에 저장되어있는 친구들중에 하나라도 바뀌면 바뀌게끔
